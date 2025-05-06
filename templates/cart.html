@@ -242,7 +242,9 @@ document.getElementById('closebutton').addEventListener('click', () => {
                 alert('Заказ оформлен! Номер заказа: ' + data.order_id);
                 fetch('/api/clear-cart', { method: 'POST' })
                     .then(() => {
-                        document.getElementById('order').style.display = 'none';
+                      document.getElementById("order").style.display = "none";
+                      document.getElementById("shadow").style.display = "none";   
+                      document.getElementById("cartbody").style.position = "absolute";
                         loadCart();
                     });
             } else {
