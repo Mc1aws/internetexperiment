@@ -23,7 +23,7 @@
             <label for="email"></label>
             <input class = "inputEmail" type="email" id="email" name="email" required>
         </div>
-    
+
         <div>
             <label for="address"></label>
             <input class = "inputAddress" type="address" id="address" name="address" required>
@@ -183,7 +183,7 @@
               if (title) title.textContent = item.name;
               if (price) price.textContent = `${item.price} rub.`;
               if (size) size.textContent = `SIZE: ${item.size}`;
-              if (img) img.src = item.imgUrl;
+              if (img) img.src = "/static/assets/" +item.name + ".jpg";
               if (deleteBtn) deleteBtn.onclick = () => removeItem(startIdx + idx);
 
           } else {

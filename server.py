@@ -126,15 +126,40 @@ def place_order():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    db = get_db()
+    cursor = db.cursor()
+
+    products = cursor.execute("""
+        SELECT id, name, price
+        FROM products2
+        WHERE m_quant > 0 OR l_quant > 0 OR xl_quant > 0
+    """).fetchall()
+
+    return render_template('index.html', products=products)
 
 @app.route('/cart')
 def cart():
     return render_template('cart.html')
 
-@app.route('/item')
+@app.route('/buy')
 def buy():
-    return render_template('buypage.html')
+    product_id = request.args.get('id')
+
+    if not product_id:
+        return "Товар не найден", 404
+
+    db = get_db()
+    cursor = db.cursor()
+
+    product = cursor.execute(
+        "SELECT * FROM products WHERE pr_id = ?",
+        (product_id,)
+    ).fetchone()
+
+    if not product:
+        return "Товар не найден", 404
+
+    return render_template('buypage.html', product=product)
 
 @app.route('/about')
 def profile():

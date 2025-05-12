@@ -29,99 +29,27 @@
 
     </div>
 
-  <div class="shoplist">
+    <div class="shoplist">
+      {% for product in products %}
+        <div class="itemcard">
+          <a href="{{ url_for('buy', id=product['id']) }}" style="text-decoration: none;">
+            <img class="itemimage"
+                src="{{ url_for('static', filename='assets/' ~ product['name'] ~ '.jpg') }}"
+                alt=""
+                width="440"
+                height="440">
+            
+            <div class="itemtext">
+              <h1>{{ product['name'] }}</h1>
+            </div>
 
-    <div class = "itemcard">
-      <a href="{{ url_for('buy') }}" style="text-decoration: none;" > 
-        <img class = "itemimage" src="{{ url_for('static', filename='assets/ite.jpg') }}" alt="" width="440" height="440">
-
-        <div class = "itemtext">
-          <h1>dragonborn jacket</h1>
+            <div class="itemtext">
+              <h1>{{ product['price'] }} rub.</h1>
+            </div>
+          </a>
         </div>
-
-        <div class = "itemtext">
-          <h1>10000 rub.</h1>
-        </div>
-      </a>
-
+      {% endfor %}
     </div>
-
-    <div class = "itemcard">
-      <a href="{{ url_for('buy') }}" style="text-decoration: none;" > 
-        <img class = "itemimage" src="{{ url_for('static', filename='assets/ite.jpg') }}" alt="" width="440" height="440">
-
-        <div class = "itemtext">
-          <h1>dragonborn jacket</h1>
-        </div>
-
-        <div class = "itemtext">
-          <h1>10000 rub.</h1>
-        </div>
-      </a>
-
-    </div>
-    
-    <div class = "itemcard">
-      <a href="{{ url_for('buy') }}" style="text-decoration: none;" > 
-        <img class = "itemimage" src="{{ url_for('static', filename='assets/ite.jpg') }}" alt="" width="440" height="440">
-
-        <div class = "itemtext">
-          <h1>dragonborn jacket</h1>
-        </div>
-
-        <div class = "itemtext">
-          <h1>10000 rub.</h1>
-        </div>
-      </a>
-
-    </div>
-
-    <div class = "itemcard">
-      <a href="{{ url_for('buy') }}" style="text-decoration: none;" > 
-        <img class = "itemimage" src="{{ url_for('static', filename='assets/ite.jpg') }}" alt="" width="440" height="440">
-
-        <div class = "itemtext">
-          <h1>dragonborn jacket</h1>
-        </div>
-
-        <div class = "itemtext">
-          <h1>10000 rub.</h1>
-        </div>
-      </a>
-
-    </div>
-
-    <div class = "itemcard">
-      <a href="{{ url_for('buy') }}" style="text-decoration: none;" > 
-        <img class = "itemimage" src="{{ url_for('static', filename='assets/ite.jpg') }}" alt="" width="440" height="440">
-
-        <div class = "itemtext">
-          <h1>dragonborn jacket</h1>
-        </div>
-
-        <div class = "itemtext">
-          <h1>10000 rub.</h1>
-        </div>
-      </a>
-
-    </div>
-
-    <div class = "itemcard">
-      <a href="{{ url_for('buy') }}" style="text-decoration: none;" > 
-        <img class = "itemimage" src="{{ url_for('static', filename='assets/ite.jpg') }}" alt="" width="440" height="440">
-
-        <div class = "itemtext">
-          <h1>dragonborn jacket</h1>
-        </div>
-
-        <div class = "itemtext">
-          <h1>10000 rub.</h1>
-        </div>
-      </a>
-
-    </div>
-    
-  </div>
 
   </div>
 </body>
